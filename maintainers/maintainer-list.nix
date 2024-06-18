@@ -13731,6 +13731,13 @@
     githubId = 220262;
     name = "Ion Mudreac";
   };
+  muggenhor = {
+    name = "Giel van Schijndel";
+    email = "giel@mortis.eu";
+    github = "muggenhor";
+    githubId = 484066;
+    keys = [ { fingerprint = "AA63 E8D4 2730 38DA FE52  97FC 6416 26FF CEE5 E742"; } ];
+  };
   multisn8 = {
     email = "all-things-nix@multisamplednight.com";
     github = "MultisampledNight";
