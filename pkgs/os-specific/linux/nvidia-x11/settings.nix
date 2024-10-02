@@ -9,6 +9,7 @@ nvidia_x11: sha256:
 , jansson
 , gtk2
 , dbus
+, vulkan-headers
 , gtk3
 , libXv
 , libXrandr
@@ -95,7 +96,7 @@ stdenv.mkDerivation {
 
   nativeBuildInputs = [ pkg-config m4 addOpenGLRunpath ];
 
-  buildInputs = [ jansson libXv libXrandr libXext libXxf86vm libvdpau nvidia_x11 gtk2 dbus ]
+  buildInputs = [ jansson libXv libXrandr libXext libXxf86vm libvdpau nvidia_x11 gtk2 dbus vulkan-headers ]
     ++ lib.optionals withGtk3 [ gtk3 librsvg wrapGAppsHook3 ];
 
   installFlags = [ "PREFIX=$(out)" ];

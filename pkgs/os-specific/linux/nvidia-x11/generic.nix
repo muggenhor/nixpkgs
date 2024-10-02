@@ -23,6 +23,7 @@
 , postPatch ? null
 , patchFlags ? null
 , patches ? [ ]
+, patchesOpen ? [ ]
 , preInstall ? null
 , postInstall ? null
 , broken ? false
@@ -202,6 +203,7 @@ let
           (hash: callPackage ./open.nix {
             inherit hash;
             nvidia_x11 = self;
+            patches = patchesOpen;
             broken = brokenOpen;
           })
           openSha256;
