@@ -19,7 +19,7 @@ let
       shortName,
       shortDescription,
       dictFileName,
-      readmeFileName,
+      readmeFileName ? null,
     }:
     stdenv.mkDerivation rec {
       version = "24.8";
@@ -44,7 +44,7 @@ let
         install -m644 "hyph_${dictFileName}.dic" "$out/share/hyphen"
         # docs
         install -dm755 "$out/share/doc/"
-        install -m644 "README_hyph_${readmeFileName}.txt" "$out/share/doc/${pname}.txt"
+        ${lib.optionalString readmeFileName ''install -m644 "README_hyph_${readmeFileName}.txt" "$out/share/doc/${pname}.txt"''}
         runHook postInstall
       '';
     };
@@ -103,5 +103,15 @@ rec {
     shortDescription = "German (Switzerland)";
     dictFileName = "de_CH";
     readmeFileName = "de";
+  };
+
+  # DUTCH
+
+  nl-nl = nl_NL;
+  nl_NL = mkDictFromLibreofficeGit {
+    subdir = "nl_NL";
+    shortName = "nl-nl";
+    shortDescription = "Dutch (Netherlands)";
+    dictFileName = "nl_NL";
   };
 }
